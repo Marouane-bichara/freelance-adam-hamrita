@@ -1,0 +1,48 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+main {
+  position: relative;
+  z-index: 10;
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.bento-span-2,
+.bento-span-3 {
+  grid-column: span 1 / span 1;
+}
+
+@media (min-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.4rem;
+  }
+
+  .bento-span-2 {
+    grid-column: span 2 / span 2;
+  }
+
+  .bento-span-3 {
+    grid-column: span 3 / span 3;
+  }
+}
+
+.bottom-grounding-fade {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  height: 120px;
+  z-index: 2;
+  background: linear-gradient(to top, rgba(2, 6, 23, 0.7), transparent);
+}
+
+:host-context(.light-mode) .bottom-grounding-fade {
+  background: linear-gradient(to top, rgba(79, 70, 229, 0.09), transparent);
+}
